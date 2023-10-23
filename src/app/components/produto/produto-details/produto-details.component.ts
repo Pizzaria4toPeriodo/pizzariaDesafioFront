@@ -12,7 +12,7 @@ export class ProdutoDetailsComponent {
 
 router = inject(ActivatedRoute)
 
-produto: Produto = new Produto(0,"",0,Pedido);
+produto: Produto = new Produto(0,"",0);
 
 @Output() retorno = new EventEmitter<Produto>();
 
