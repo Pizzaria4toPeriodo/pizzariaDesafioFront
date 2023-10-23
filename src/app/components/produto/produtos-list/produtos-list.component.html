@@ -1,1 +1,49 @@
-<p>produtos-list works!</p>
+
+<button (click)="abrirModal(content)">Add Produto</button>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Produto</th>
+        <th scope="col">Preco</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let produto of produtosList">
+
+        <th>{{produto.id}}</th>
+        <th>{{produto.nomeProduto}}</th>
+        <th>{{produto.preco}}</th>
+        <td >
+            <input type="button"  routerLink="inicio/produtos/details/:id" value="Ver">
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+
+
+
+
+
+  <ng-template #content let-modal>
+	<div class="modal-header">
+	<h4 class="modal-title">Produto</h4>
+	<button type="button" class="btn-close" aria-label="Close"
+	(click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+
+         
+	
+        <app-produto-details (retorno)="addNaLista($event)"> </app-produto-details>
+	</div>
+	<div class="modal-footer">
+	<button type="button" class="btn btn-light"
+	(click)="modal.close('Close click')">Close</button>
+	</div>
+	</ng-template>

@@ -10,6 +10,8 @@ import { IndexComponent } from './layout/index/index/index.component';
 import { FooterComponent } from './layout/footer/footer/footer.component';
 import { HeaderComponent } from './layout/header/header/header.component';
 import { LoginComponent } from './sistema/login/login.component'
+import { ProdutoDetailsComponent } from './components/produto/produto-details/produto-details.component';
+import { ProdutosListComponent } from './components/produto/produtos-list/produtos-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { LoginComponent } from './sistema/login/login.component'
     IndexComponent,
     FooterComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    ProdutoDetailsComponent,
+    ProdutosListComponent
   ],
   imports: [
     BrowserModule,
