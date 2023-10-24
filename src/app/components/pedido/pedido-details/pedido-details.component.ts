@@ -43,16 +43,16 @@ export class PedidoDetailsComponent {
 
   excluir(produto: Produto, indice: number) {
 
-    this.pedido.produto.splice(indice,1);
+    this.pedido.produtoList.splice(indice,1);
     
   }
 
   retornoProdutosList(produto: Produto) {
 
-    if (this.pedido.produto == null)
-      this.pedido.produto = [];
+    if (this.pedido.produtoList == null)
+      this.pedido.produtoList = [];
 
-    this.pedido.produto.push(produto);
+    this.pedido.produtoList.push(produto);
     this.modalRef.dismiss();
 }
 

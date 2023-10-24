@@ -2,16 +2,23 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Cliente</th>
         <th scope="col">Total</th>
+        <th scope="col">Delivery</th>
+        <th scope="col">Forma de pagamento</th>
+        <th scope="col">Hora do pedido</th>
         <th scope="col">Options</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pedidos of lista; let i = index">
         <td>{{ pedidos.id }}</td>
-        <td> <button type="button" class="btn btn-primary" (click)="editar(modal1, pedidos, i)">Editar</button> </td>
         <td>{{ pedidos.total }}</td>
+        <td>
+          <span [ngClass]="pedidos.delivery ? 'green-box' : 'red-box'">{{ pedidos.delivery ? 'Sí' : 'No' }}</span>
+        </td>
+        <td>{{ pedidos.formaPagamento }}</td>
+        <td>{{ pedidos.criadoEm }}</td>
+        <td> <button type="button" class="btn btn-primary" (click)="editar(modal1, pedidos, i)">Editar</button> </td>
       </tr>
     </tbody>
   </table>

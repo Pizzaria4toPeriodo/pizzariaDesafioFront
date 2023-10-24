@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Pedido } from 'src/app/models/pedido';
+import { ClientesService } from 'src/app/services/clientes.service';
 import { PedidosService } from 'src/app/services/pedidos.service';
 
 @Component({
@@ -18,9 +19,12 @@ export class PedidosListComponent {
   modalService = inject(NgbModal);
   modalRef!: NgbModalRef;
   pedidosService = inject(PedidosService);
+  clientesServices =  inject(ClientesService);
+  clientes: any[] = [];
 
   constructor() {
     this.listAll();
+    this.loadClientes();
   }
 
   listAll() {
@@ -33,6 +37,22 @@ export class PedidosListComponent {
         console.error(error);
       }
     });
+  }
+
+  loadClientes() {
+    this.clientesServices.listAll().subscribe({
+      next: (clientes) => {
+        this.clientes = clientes;
+        console.log(this.clientes)
+      },
+      error: (error) => {
+        console.error('Error al cargar la lista de clientes:', error);
+      }
+    });
+  }
+
+  getClienteById(clienteId: number): any {
+    return this.clientes.find((cliente) => cliente.id === clienteId);
   }
 
   adicionar(modal: any) {
