@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pedido } from 'src/app/models/pedido';
 import { Produto } from 'src/app/models/produto';
 
 @Component({
@@ -16,8 +15,6 @@ produto: Produto = new Produto(0,"",0);
 
 @Output() retorno = new EventEmitter<Produto>();
 
-
-
 constructor(){
 
   let id = this.router.snapshot.paramMap.get('id');
@@ -25,14 +22,8 @@ constructor(){
 
 }
 
-
 salvar(){
 
   this.retorno.emit(this.produto);
 }
-
-
-
-
-
 }

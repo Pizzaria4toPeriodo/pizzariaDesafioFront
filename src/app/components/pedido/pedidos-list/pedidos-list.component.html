@@ -1,1 +1,25 @@
-<p>pedidos-list works!</p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Total</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidosList">
+        <td>{{ pedido.id }}</td>
+        <td>{{ pedido.cliente.nome }}</td>
+        <td>{{ pedido.total }}</td>
+        <td>
+          <button (click)="abrirModal(pedido)">Add Pedido</button>
+          <input type="button" routerLink="inicio/pedidos/details:id" value="Ver">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+ 
+  
+  

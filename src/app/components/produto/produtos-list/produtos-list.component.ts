@@ -21,7 +21,6 @@ abrirModal(content:any){
 
 }
 
-
 addNaLista(produto: Produto){
 
   this.produtosList.push(produto);
