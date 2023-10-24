@@ -12,6 +12,8 @@ import { HeaderComponent } from './layout/header/header/header.component';
 import { LoginComponent } from './sistema/login/login.component'
 import { ProdutoDetailsComponent } from './components/produto/produto-details/produto-details.component';
 import { ProdutosListComponent } from './components/produto/produtos-list/produtos-list.component';
+import { ClienteListComponent } from './app/clientes/cliente-list/cliente-list.component';
+import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ProdutosListComponent } from './components/produto/produtos-list/produt
     HeaderComponent,
     LoginComponent,
     ProdutoDetailsComponent,
-    ProdutosListComponent
+    ProdutosListComponent,
+    ClienteListComponent,
+    ClientesListComponent
   ],
   imports: [
     BrowserModule,

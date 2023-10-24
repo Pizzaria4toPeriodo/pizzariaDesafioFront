@@ -8,18 +8,29 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pedido of pedidosList">
+      <tr *ngFor="let pedido of lista; let i = index">
         <td>{{ pedido.id }}</td>
         <td>{{ pedido.cliente.nome }}</td>
         <td>{{ pedido.total }}</td>
         <td>
-          <button (click)="abrirModal(pedido)">Add Pedido</button>
-          <input type="button" routerLink="inicio/pedidos/details:id" value="Ver">
+          <button type="button" class="btn btn-primary" (click)="editar(modal1, pedido, i)">Editar</button>
         </td>
       </tr>
     </tbody>
   </table>
 
- 
   
-  
+  <ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       
+        
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
