@@ -11,8 +11,8 @@ import { PedidosService } from 'src/app/services/pedidos.service';
 })
 export class PedidoDetailsComponent {
 
-  @Input() pedido: Pedido = new Pedido();
-  @Output() retorno = new EventEmitter<Pedido>();
+ @Input() pedido: Pedido = new Pedido();
+ @Output() retorno = new EventEmitter<Pedido>();
 
   modalService = inject(NgbModal);
   modalRef!: NgbModalRef;
@@ -27,10 +27,10 @@ export class PedidoDetailsComponent {
   salvar() {
 
     this.pedidosService.create(this.pedido).subscribe({
-      next: pedido => { // QUANDO DÁ CERTO
+      next: pedido => { 
         this.retorno.emit(pedido);
       },
-      error: erro => { // QUANDO DÁ ERRO
+      error: erro => { 
         alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
         console.error(erro);
       }
@@ -60,6 +60,7 @@ export class PedidoDetailsComponent {
   lancar(modal: any) {
     this.modalRef = this.modalService.open(modal, { size: 'lg' });
   }
+
 
 
 }

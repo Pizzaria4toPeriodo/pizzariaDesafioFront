@@ -1,1 +1,50 @@
-<p>pedido-details works!</p>
+<form (ngSubmit)="salvar()">
+    <div class="mb-3">
+        
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button> 
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Total</th>
+                <th scope="col">Delivery</th>
+                <th scope="col">Forma de pagamento</th>
+                <th scope="col">Hora do pedido</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produto of pedido.produtoList; let i = index">
+                <th scope="row">{{ produto.id }}</th>
+                <td> {{ produto.nomeProduto }} </td>
+                <td> {{ produto.preco }} </td>
+                <td> <button type="button" class="btn btn-primary" (click)="excluir(produto,i)">Excluir</button> </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+
+
+
+<ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       
+        <app-produtos-list [modoLancamento]="true" (retorno)="retornoProdutosList($event)" ></app-produtos-list>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

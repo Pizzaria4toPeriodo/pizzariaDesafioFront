@@ -1,5 +1,4 @@
 
-<button (click)="abrirModal(content)">Add Produto</button>
 
 <table class="table">
     <thead class="thead-dark">
@@ -12,7 +11,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let produto of produtosList">
+      <tr *ngFor="let produto of lista; let i = index">
 
         <th>{{produto.id}}</th>
         <th>{{produto.nomeProduto}}</th>
@@ -35,9 +34,7 @@
 	</div>
 	<div class="modal-body">
 
-         
-	
-        <app-produto-details (retorno)="addNaLista($event)"> </app-produto-details>
+             
 	</div>
 	<div class="modal-footer">
 	<button type="button" class="btn btn-light"

@@ -11,7 +11,7 @@ export class ProdutoDetailsComponent {
 
 router = inject(ActivatedRoute)
 
-produto: Produto = new Produto(0,"",0);
+
 
 @Output() retorno = new EventEmitter<Produto>();
 
@@ -20,10 +20,5 @@ constructor(){
   let id = this.router.snapshot.paramMap.get('id');
 
 
-}
-
-salvar(){
-
-  this.retorno.emit(this.produto);
 }
 }
