@@ -12,8 +12,9 @@ import { HeaderComponent } from './layout/header/header/header.component';
 import { LoginComponent } from './sistema/login/login.component'
 import { ProdutoDetailsComponent } from './components/produto/produto-details/produto-details.component';
 import { ProdutosListComponent } from './components/produto/produtos-list/produtos-list.component';
-import { ClienteListComponent } from './app/clientes/cliente-list/cliente-list.component';
+import { PedidosListComponent } from './components/pedido/pedidos-list/pedidos-list.component';
 import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
+import { PedidoDetailsComponent } from './components/pedido/pedido-details/pedido-details.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { ClientesListComponent } from './components/clientes/clientes-list/clien
     HeaderComponent,
     LoginComponent,
     ProdutoDetailsComponent,
+    PedidoDetailsComponent,
+    PedidosListComponent,
     ProdutosListComponent,
-    ClienteListComponent,
     ClientesListComponent
   ],
   imports: [

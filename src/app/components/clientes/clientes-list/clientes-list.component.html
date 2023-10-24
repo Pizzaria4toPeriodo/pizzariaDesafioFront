@@ -1,1 +1,36 @@
-<p>clientes-list works!</p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Cpf</th>
+        <th scope="col">telefone</th>
+        <th scope="col">options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of lista; let i = index">
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nomeCliente }}</td>  
+        <td>{{ cliente.cpf }}  
+        <td>{{ cliente.telefone }}   
+        <td>
+          <button type="button" class="btn btn-primary" (click)="editar(modal1, cliente, i)">Editar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

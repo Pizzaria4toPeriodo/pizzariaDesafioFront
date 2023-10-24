@@ -24,31 +24,15 @@ export class PedidosListComponent {
   }
 
   listAll() {
-
     this.pedidosService.listAll().subscribe({
-      next: lista => { // QUANDO DÁ CERTO
-        this.lista = lista;
+      next: (pedido) => {
+        this.lista = pedido;
       },
-      error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-        console.error(erro);
+      error: (error) => {
+        alert('Tratamiento de error de ejemplo. Observa el error en la consola.');
+        console.error(error);
       }
     });
-
-  }
-
-  exemploErro() {
-
-    this.pedidosService.exemploErro().subscribe({
-      next: lista => {
-        this.lista = lista;
-      },
-      error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-        console.error(erro);
-      }
-    });
-
   }
 
   adicionar(modal: any) {
@@ -59,19 +43,17 @@ export class PedidosListComponent {
   }
 
   editar(modal: any, pedido: Pedido, indice: number) {
-    this.objetoSelecionadoParaEdicao = Object.assign({}, pedido); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
+    this.objetoSelecionadoParaEdicao = { ...pedido };
     this.indiceSelecionadoParaEdicao = indice;
 
     this.modalRef = this.modalService.open(modal, { size: 'md' });
   }
 
   addOuEditarPedido(pedido: Pedido) {
-
     this.listAll();
-
     this.modalService.dismissAll();
-
   }
+
 
 
 

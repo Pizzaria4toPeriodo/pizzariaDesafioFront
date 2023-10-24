@@ -8,13 +8,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pedido of lista; let i = index">
-        <td>{{ pedido.id }}</td>
-        <td>{{ pedido.cliente.nome }}</td>
-        <td>{{ pedido.total }}</td>
-        <td>
-          <button type="button" class="btn btn-primary" (click)="editar(modal1, pedido, i)">Editar</button>
-        </td>
+      <tr *ngFor="let pedidos of lista; let i = index">
+        <td>{{ pedidos.id }}</td>
+        <td> <button type="button" class="btn btn-primary" (click)="editar(modal1, pedidos, i)">Editar</button> </td>
+        <td>{{ pedidos.total }}</td>
       </tr>
     </tbody>
   </table>
@@ -27,7 +24,7 @@
     </div>
     <div class="modal-body">
        
-        
+      <app-pedido-details [pedido]="objetoSelecionadoParaEdicao" (retorno)="addOuEditarPedido($event)" ></app-pedido-details>
         
     </div>
     <div class="modal-footer">

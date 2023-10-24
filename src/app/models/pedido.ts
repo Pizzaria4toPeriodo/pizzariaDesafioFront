@@ -4,7 +4,7 @@ import { Cliente } from './cliente';
 export class Pedido {
   id!: number;
   produto!: Produto[];
-  cliente!: Cliente;
+  cliente!: Cliente[];
   delivery!: boolean;
   formaPagamento!: string; 
   total!: number;

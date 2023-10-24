@@ -6,6 +6,7 @@ import { PedidosListComponent } from './components/pedido/pedidos-list/pedidos-l
 import { PedidoDetailsComponent } from './components/pedido/pedido-details/pedido-details.component';
 import { ProdutosListComponent } from './components/produto/produtos-list/produtos-list.component';
 import { ProdutoDetailsComponent } from './components/produto/produto-details/produto-details.component';
+import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
 
 const routes: Routes = [
 {path: "", redirectTo: "login", pathMatch: "full"},
@@ -14,7 +15,8 @@ const routes: Routes = [
       {path:"pedidos", component: PedidosListComponent},
       {path:"pedidos/details/:id", component: PedidoDetailsComponent},
       {path:"produtos", component: ProdutosListComponent},
-      {path:"produtos/details/:id", component: ProdutoDetailsComponent}
+      {path:"produtos/details/:id", component: ProdutoDetailsComponent},
+      {path:"clientes", component: ClientesListComponent},
     ] }
 
 ];
