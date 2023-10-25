@@ -49,6 +49,21 @@ export class ClientesListComponent {
     this.modalRef = this.modalService.open(modal, { size: 'md' });
   }
 
+  excluir(cliente: Cliente, indice: number) {
+    if (confirm('¿Seguro que desea eliminar este cliente?')) {
+      this.clientesService.delete(cliente.id).subscribe({
+        next: () => {
+          this.lista.splice(indice, 1); // Elimina el cliente de la lista local
+          this.modalService.dismissAll();
+        },
+        error: (error) => {
+          alert('Error al eliminar el cliente. Consulte la consola para más detalles.');
+          console.error(error);
+        }
+      });
+    }
+  }
+
   addOuEditarCliente(cliente: Cliente) {
     this.listAll();
     this.modalService.dismissAll();
