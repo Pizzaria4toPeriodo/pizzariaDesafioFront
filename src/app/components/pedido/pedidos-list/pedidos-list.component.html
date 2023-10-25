@@ -14,10 +14,11 @@
         <th scope="col">Options</th>
       </tr>
     </thead>
+
     <tbody>
       <tr *ngFor="let pedidos of lista; let i = index">
-        <td>{{ pedidos.id }}</td>
-        <td>{{ pedidos.total }}</td>
+        <td>{{pedidos.id}}</td>
+        <td>{{pedidos.total}}</td>
         <td>
           <span [ngClass]="pedidos.delivery ? 'green-box' : 'red-box'">{{ pedidos.delivery ? 'Sí' : 'No' }}</span>
         </td>
@@ -35,7 +36,7 @@
   
   <ng-template #modal1 let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">Pedido</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">

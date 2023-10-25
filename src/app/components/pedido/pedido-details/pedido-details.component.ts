@@ -25,8 +25,7 @@ export class PedidoDetailsComponent {
   }
 
   salvar() {
-
-    this.pedidosService.create(this.pedido).subscribe({
+      this.pedidosService.create(this.pedido).subscribe({
       next: pedido => { 
         this.retorno.emit(pedido);
       },
@@ -35,8 +34,6 @@ export class PedidoDetailsComponent {
         console.error(erro);
       }
     });
-
-
 
   }
 

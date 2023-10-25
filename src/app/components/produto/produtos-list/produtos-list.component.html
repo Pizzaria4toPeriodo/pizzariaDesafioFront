@@ -19,10 +19,16 @@
         <th>{{produto.id}}</th>
         <th>{{produto.nomeProduto}}</th>
         <th>{{produto.preco}}</th>
-        <td> 
+        <td *ngIf="!modoLancamento"> 
           <button type="button" class="btn btn-primary" (click)="editar(modal1, produto, i)">Editar</button> 
+        </td>
+        <td *ngIf="modoLancamento"><button type="button" class="btn btn-primary" (click)="lancamento(produto)">Lançar</button>
+        </td>
+        <td>
           <button type="button" class="btn btn-danger" (click)="excluir(produto, i)">Excluir</button>
         </td>
+
+
       </tr>
 
 

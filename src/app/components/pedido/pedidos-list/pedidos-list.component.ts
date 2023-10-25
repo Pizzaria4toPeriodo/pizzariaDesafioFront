@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Pedido } from 'src/app/models/pedido';
 import { ClientesService } from 'src/app/services/clientes.service';
@@ -12,6 +12,8 @@ import { PedidosService } from 'src/app/services/pedidos.service';
 export class PedidosListComponent {
 
   lista: Pedido[] = [];
+
+  @Output() retorno = new EventEmitter<Pedido>()
 
   objetoSelecionadoParaEdicao: Pedido = new Pedido();
   indiceSelecionadoParaEdicao!: number;
@@ -89,6 +91,10 @@ export class PedidosListComponent {
     this.modalService.dismissAll();
   }
 
+
+  lancamento(pedido: Pedido){
+    this.retorno.emit(pedido);
+  }
 
 
 
