@@ -1,0 +1,38 @@
+<div class="container">
+    <h3 class="alert alert-secondary text-center" style="color: rgb(0, 0, 0);">Funcionarios</h3>
+    <button type="button" class="btn btn-success mb-3" (click)="adicionar(modal1)">
+        <i class="fa fa-plus"></i> Adicionar funcionario
+    </button>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome do Funcionario</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let funcionario of lista; let i = index">
+          <td>{{ funcionario.id }}</td>
+          <td>{{ funcionario.nomeFuncionario }}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="editar(modal1, funcionario, i)">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="excluir(funcionario, i)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  

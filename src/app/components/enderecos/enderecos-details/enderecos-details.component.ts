@@ -37,9 +37,7 @@ export class EnderecosDetailsComponent {
     });
 
 
-
   }
-
 
   excluir(cliente: Cliente, indice: number) {
 

@@ -8,6 +8,9 @@ import { ProdutosListComponent } from './components/produto/produtos-list/produt
 import { ProdutoDetailsComponent } from './components/produto/produto-details/produto-details.component';
 import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
 import { EnderecosListComponent } from './components/enderecos/enderecos-list/enderecos-list.component';
+import { ClientesDetailsComponent } from './components/clientes/clientes-details/clientes-details.component';
+import { EnderecosDetailsComponent } from './components/enderecos/enderecos-details/enderecos-details.component';
+import { FuncionariosListComponent } from './components/funcionarios/funcionarios-list/funcionarios-list.component';
 
 const routes: Routes = [
 {path: "", redirectTo: "login", pathMatch: "full"},
@@ -18,7 +21,10 @@ const routes: Routes = [
       {path:"produtos", component: ProdutosListComponent},
       {path:"produtos/details/:id", component: ProdutoDetailsComponent},
       {path:"clientes", component: ClientesListComponent},
-      {path:"enderecos", component: EnderecosListComponent}
+      {path:"clientes/details/:id", component: ClientesDetailsComponent},
+      {path:"enderecos", component: EnderecosListComponent},
+      {path:"enderecos/details/:id", component: EnderecosDetailsComponent},
+      {path:"funcionarios", component: FuncionariosListComponent},
     ] }
 
 ];
