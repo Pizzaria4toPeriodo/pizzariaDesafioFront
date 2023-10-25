@@ -8,7 +8,7 @@ export class Pedido {
   id!: number;
   produtoList!: Produto[];
   pizzaList!: Pizza[];
-  cliente!: Cliente;
+  cliente!: Cliente[];
   funcionario!: Funcionario;
   delivery!: boolean;
   formaPagamento!: string;

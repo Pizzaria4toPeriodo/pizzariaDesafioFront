@@ -13,6 +13,7 @@
     </div>
 
     <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button> 
+    <button type="button" class="btn btn-primary" (click)="lancarcliente(modal2)">Lançar cliente</button> 
 
     <table class="table table-striped">
         <thead>
@@ -32,6 +33,26 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Cpf</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of pedido.cliente; let i = index">
+                <th scope="row">{{ cliente.id }}</th>
+                <td> {{ cliente.nomeCliente }} </td>
+                <td> {{ cliente.cpf }} </td>
+                <td> {{ cliente.telefone }} </td>
+                <td> <button type="button" class="btn btn-primary" (click)="excluircliente(cliente,i)">Excluir</button> </td>
+            </tr>
+        </tbody>
+    </table>
 
     <button type="submit" class="btn btn-primary" >Salvar</button>
 </form>
@@ -47,6 +68,21 @@
     <div class="modal-body">
        
         <app-produtos-list [modoLancamento]="true" (retorno)="retornoProdutosList($event)" ></app-produtos-list>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+
+<ng-template #modal2 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Clientes</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       
+        <app-clientes-list [modoLancamento]="true" (retorno)="retornoClienteList($event)" ></app-clientes-list>
         
     </div>
     <div class="modal-footer">
