@@ -1,0 +1,48 @@
+<form (ngSubmit)="salvar()">
+    <div class="mb-3">
+        <label for="rua" class="form-label">Rua:</label>
+        <input type="text" id="rua" class="form-control" name="rua" [(ngModel)]="endereco.rua">
+    </div>
+    <div class="mb-3">
+        <label for="numero" class="form-label">Numero:</label>
+        <input type="text" id="numero" class="form-control" name="numero" [(ngModel)]="endereco.numero">
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar cliente</button> 
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of endereco.clienteList; let i = index">
+                <th scope="row">{{ cliente.id }}</th>
+                <td> {{ cliente.nomeCliente }} </td>
+                <td> {{ cliente.cpf }} </td>
+                <td> {{ cliente.telefone }} </td>
+                <td> <button type="button" class="btn btn-primary" (click)="excluir(cliente,i)">Excluir</button> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <app-clientes-list [modoLancamento]="true" (retorno)="retornoClienteList($event)" ></app-clientes-list>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

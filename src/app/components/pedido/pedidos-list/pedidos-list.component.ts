@@ -69,6 +69,21 @@ export class PedidosListComponent {
     this.modalRef = this.modalService.open(modal, { size: 'md' });
   }
 
+  excluir(pedido: Pedido, indice: number) {
+    if (confirm('¿Seguro que desea eliminar este pedido?')) {
+      this.pedidosService.delete(pedido.id).subscribe({
+        next: () => {
+          this.lista.splice(indice, 1); // Elimina el cliente de la lista local
+          this.modalService.dismissAll();
+        },
+        error: (error) => {
+          alert('Error al eliminar el pedido. Consulte la consola para más detalles.');
+          console.error(error);
+        }
+      });
+    }
+  }
+
   addOuEditarPedido(pedido: Pedido) {
     this.listAll();
     this.modalService.dismissAll();

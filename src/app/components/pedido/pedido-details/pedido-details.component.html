@@ -1,6 +1,15 @@
 <form (ngSubmit)="salvar()">
     <div class="mb-3">
-        
+        <label for="total" class="form-label">Total:</label>
+        <input type="text" id="total" class="form-control" name="total" [(ngModel)]="pedido.total">
+    </div>
+    <div class="mb-3">
+        <label for="delivery" class="form-label">Delivery (true/false):</label>
+        <input type="text" id="delivery" class="form-control" name="delivery" [(ngModel)]="pedido.delivery">
+    </div>
+    <div class="mb-3">
+        <label for="formaPagamento" class="form-label">Forma de pagamento:</label>
+        <input type="text" id="formaPagamento" class="form-control" name="formaPagamento" [(ngModel)]="pedido.formaPagamento">
     </div>
 
     <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button> 
@@ -25,8 +34,6 @@
             </tr>
         </tbody>
     </table>
-
-
 
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>

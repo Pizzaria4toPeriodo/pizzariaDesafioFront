@@ -52,10 +52,25 @@ export class ProdutosListComponent {
   }
 
   editar(modal: any, produto: Produto, indice: number) {
-    this.objetoSelecionadoParaEdicao = Object.assign({}, produto); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
+    this.objetoSelecionadoParaEdicao = Object.assign({}, produto);
     this.indiceSelecionadoParaEdicao = indice;
 
     this.modalRef = this.modalService.open(modal, { size: 'sm' });
+  }
+
+  excluir(produto: Produto, indice: number) {
+    if (confirm('¿Seguro que deseja excluir este produto?')) {
+      this.produtosService.delete(produto.id).subscribe({
+        next: () => {
+          this.lista.splice(indice, 1);
+          this.modalService.dismissAll();
+        },
+        error: (error) => {
+          alert('Error al eliminar el produto. Consulte la consola para más detalles.');
+          console.error(error);
+        }
+      });
+    }
   }
 
   addOuEditarProduto(produto: Produto) {

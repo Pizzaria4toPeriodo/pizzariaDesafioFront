@@ -15,6 +15,11 @@ import { ProdutosListComponent } from './components/produto/produtos-list/produt
 import { PedidosListComponent } from './components/pedido/pedidos-list/pedidos-list.component';
 import { ClientesListComponent } from './components/clientes/clientes-list/clientes-list.component';
 import { PedidoDetailsComponent } from './components/pedido/pedido-details/pedido-details.component';
+import { ClientesDetailsComponent } from './components/clientes/clientes-details/clientes-details.component';
+import { EnderecosListComponent } from './components/enderecos/enderecos-list/enderecos-list.component';
+import { EnderecosDetailsComponent } from './components/enderecos/enderecos-details/enderecos-details.component';
+import { FuncionariosListComponent } from './components/funcionarios/funcionarios-list/funcionarios-list.component';
+import { FuncionariosDetailsComponent } from './components/funcionarios/funcionarios-details/funcionarios-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { PedidoDetailsComponent } from './components/pedido/pedido-details/pedid
     PedidoDetailsComponent,
     PedidosListComponent,
     ProdutosListComponent,
-    ClientesListComponent
+    ClientesListComponent,
+    ClientesDetailsComponent,
+    EnderecosListComponent,
+    EnderecosDetailsComponent,
+    FuncionariosListComponent,
+    FuncionariosDetailsComponent
   ],
   imports: [
     BrowserModule,
