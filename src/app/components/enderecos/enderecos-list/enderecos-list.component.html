@@ -1,0 +1,40 @@
+<div class="container">
+    <h3 class="alert alert-secondary text-center">Endereços</h3>
+    <button type="button" class="btn btn-success mb-3" (click)="adicionarEndereco(modal1)">
+      <i class="fa fa-plus"></i> Adicionar Endereço
+    </button>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Rua</th>
+          <th scope="col">Numero</th>
+          <th scope="col">options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let endereco of lista; let i = index">
+          <td>{{ endereco.id }}</td>
+          <td>{{ endereco.rua }}</td>
+          <td>{{ endereco.numero }}</td>
+          <td *ngIf="!modoLancamento"><button type="button" class="btn btn-primary" (click)="editarEndereco(modal1, endereco, i)">Editar</button></td>
+          <td *ngIf="modoLancamento"><button type="button" class="btn btn-primary" (click)="lancamento(endereco)">Lançar</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="excluirEndereco(endereco, i)">Excluir</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #modal1 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <app-enderecos-details [endereco]="objetoSelecionadoParaEdicao" (retorno)="addOuEditarEndereco($event)" ></app-enderecos-details>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  
