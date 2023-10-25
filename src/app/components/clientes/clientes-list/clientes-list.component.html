@@ -1,3 +1,8 @@
+<div class="container">
+  <h3 class="alert alert-secondary text-center" style="color: rgb(0, 0, 0);">Clientes</h3>
+  <button type="button" class="btn btn-success mb-3" (click)="adicionar(modal1)">
+      <i class="fa fa-plus"></i> Adicionar clientes
+  </button>
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -20,6 +25,7 @@
       </tr>
     </tbody>
   </table>
+</div>
 
   
   <ng-template #modal1 let-modal>
@@ -28,7 +34,7 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-       
+      <app-clientes-details [cliente]="objetoSelecionadoParaEdicao" (retorno)="addOuEditarCliente($event)" ></app-clientes-details>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>

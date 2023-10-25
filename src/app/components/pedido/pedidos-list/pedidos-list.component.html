@@ -1,4 +1,8 @@
-<td> <button class="btn btn-primary" (click)="adicionar(modal1)">Adicionar</button> </td>
+<div class="container">
+  <h3 class="alert alert-secondary text-center" style="color: rgb(0, 0, 0);">Pedidos</h3>
+  <button type="button" class="btn btn-success mb-3" (click)="adicionar(modal1)">
+      <i class="fa fa-plus"></i> Adicionar pedido
+  </button>
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -23,6 +27,7 @@
       </tr>
     </tbody>
   </table>
+</div>
 
   
   <ng-template #modal1 let-modal>
