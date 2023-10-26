@@ -22,6 +22,8 @@ import { FuncionariosListComponent } from './components/funcionarios/funcionario
 import { FuncionariosDetailsComponent } from './components/funcionarios/funcionarios-details/funcionarios-details.component';
 import { PizzasListComponent } from './components/pizzas/pizzas-list/pizzas-list.component';
 import { PizzasDetailsComponent } from './components/pizzas/pizzas-details/pizzas-details.component';
+import { SaboresListComponent } from './components/sabores/sabores-list/sabores-list.component';
+import { SaboresDetailsComponent } from './components/sabores/sabores-details/sabores-details.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { PizzasDetailsComponent } from './components/pizzas/pizzas-details/pizza
     FuncionariosListComponent,
     FuncionariosDetailsComponent,
     PizzasListComponent,
-    PizzasDetailsComponent
+    PizzasDetailsComponent,
+    SaboresListComponent,
+    SaboresDetailsComponent
   ],
   imports: [
     BrowserModule,
