@@ -15,6 +15,7 @@
     <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button>
     <button type="button" class="btn btn-primary" (click)="lancar(modal2)">Lançar cliente</button> 
     <button type="button" class="btn btn-primary" (click)="lancar(modal3)">Lançar funcionario</button> 
+    <button type="button" class="btn btn-primary" (click)="lancar(modal4)">Lançar pizza</button> 
 
     <table class="table table-striped">
         <thead>
@@ -70,6 +71,27 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome da pizza</th>
+                <th scope="col">Tamanho</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Preco</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pizza of pedido.pizzaList; let i = index">
+                <th scope="row">{{ pizza.id }}</th>
+                <td> {{ pizza.nomePizza }} </td>
+                <td> {{ pizza.tamanho }} </td>
+                <td> {{ pizza.categoria }} </td>
+                <td> {{ pizza.preco }} </td>
+                <td> <button type="button" class="btn btn-primary" (click)="excluirPizza(pizza,i)">Excluir</button> </td>
+            </tr>
+        </tbody>
+    </table>
 
     <button type="submit" class="btn btn-primary" >Salvar</button>
 </form>
@@ -115,6 +137,21 @@
     <div class="modal-body">
        
         <app-funcionarios-list [modoLancamento]="true" (retorno)="retornoFuncionariosList($event)" ></app-funcionarios-list>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+
+<ng-template #modal4 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Pizzas</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       
+        <app-pizzas-list [modoLancamento]="true" (retorno)="retornoPizzasList($event)" ></app-pizzas-list>
         
     </div>
     <div class="modal-footer">

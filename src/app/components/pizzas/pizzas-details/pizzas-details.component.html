@@ -16,8 +16,29 @@
         <input type="text" id="preco" class="form-control" name="preco" [(ngModel)]="pizza.preco">
     </div>    
 
+    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar sabor</button>
+
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">nome do sabor</th>
+            <th scope="col">categoria</th>
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sabor of pizza.saborList; let i = index">
+            <th scope="row">{{ sabor.id }}</th>
+            <td> {{ sabor.nomeSabor }} </td>
+            <td> {{ sabor.categoria }} </td>
+            <td> <button type="button" class="btn btn-primary" (click)="excluir(sabor,i)">Excluir</button> </td>
+        </tr>
+    </tbody>
+</table>
 
 <ng-template #modal1 let-modal>
     <div class="modal-header">
@@ -25,7 +46,7 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-        
+        <app-sabores-list [modoLancamento]="true" (retorno)="retornoSaboresList($event)" ></app-sabores-list>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>

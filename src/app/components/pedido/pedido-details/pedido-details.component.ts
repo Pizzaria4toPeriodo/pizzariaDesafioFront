@@ -3,6 +3,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Cliente } from 'src/app/models/cliente';
 import { Funcionario } from 'src/app/models/funcionario';
 import { Pedido } from 'src/app/models/pedido';
+import { Pizza } from 'src/app/models/pizza';
 import { Produto } from 'src/app/models/produto';
 import { PedidosService } from 'src/app/services/pedidos.service';
 
@@ -58,6 +59,12 @@ export class PedidoDetailsComponent {
     
   }
 
+  excluirPizza(pizza: Pizza, indice: number) {
+
+    this.pedido.pizzaList.splice(indice,1);
+    
+  }
+
   retornoProdutosList(produto: Produto) {
 
     if (this.pedido.produtoList == null)
@@ -82,6 +89,15 @@ retornoFuncionariosList(funcionario: Funcionario) {
     this.pedido.funcionario = [];
 
   this.pedido.funcionario.push(funcionario);
+  this.modalRef.dismiss();
+}
+
+retornoPizzasList(pizza: Pizza) {
+
+  if (this.pedido.pizzaList == null)
+    this.pedido.pizzaList = [];
+
+  this.pedido.pizzaList.push(pizza);
   this.modalRef.dismiss();
 }
 

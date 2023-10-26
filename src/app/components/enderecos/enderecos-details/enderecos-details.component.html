@@ -10,7 +10,7 @@
     <div class="mb-3">
         <label for="clienteSelecionado" class="form-label">Selecione um Cliente:</label>
         <select id="clienteSelecionado" class="form-select" name="clienteSelecionado" [(ngModel)]="clienteSelecionado">
-            <option *ngFor="let cliente of clientesDisponibles" [value]="cliente.id">{{ cliente.id }}</option>
+            <option *ngFor="let cliente of clientesDisponibles" [value]="cliente.id">{{ cliente.nomeCliente }}</option>
         </select>
     </div>
 
