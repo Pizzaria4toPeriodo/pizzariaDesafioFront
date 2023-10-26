@@ -1,3 +1,9 @@
-.footercolor {
+footer {
     background-color: #B90101;
+    padding: 0; /* Espaçamento interno superior e inferior */
+    text-align: center; /* Alinhamento do texto no centro */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%
 }
