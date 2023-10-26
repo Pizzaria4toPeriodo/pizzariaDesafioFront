@@ -1,0 +1,25 @@
+<form (ngSubmit)="salvar()">
+    <div class="mb-3">
+        <label for="nomeSabor" class="form-label">nome do sabor:</label>
+        <input type="text" id="nomeSabor" class="form-control" name="nomeSabor" [(ngModel)]="sabor.nomeSabor">
+    </div>
+    <div class="mb-3">
+        <label for="categoria" class="form-label">categoria:</label>
+        <input type="text" id="categoria" class="form-control" name="categoria" [(ngModel)]="sabor.categoria">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
