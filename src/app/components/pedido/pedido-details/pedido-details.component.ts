@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Cliente } from 'src/app/models/cliente';
+import { Funcionario } from 'src/app/models/funcionario';
 import { Pedido } from 'src/app/models/pedido';
 import { Produto } from 'src/app/models/produto';
 import { PedidosService } from 'src/app/services/pedidos.service';
@@ -45,9 +46,15 @@ export class PedidoDetailsComponent {
     
   }
 
-  excluircliente(cliente: Cliente, indice: number) {
+  excluirCliente(cliente: Cliente, indice: number) {
 
     this.pedido.cliente.splice(indice,1);
+    
+  }
+
+  excluirFuncionario(funcionario: Funcionario, indice: number) {
+
+    this.pedido.funcionario.splice(indice,1);
     
   }
 
@@ -60,7 +67,7 @@ export class PedidoDetailsComponent {
     this.modalRef.dismiss();
 }
 
-retornoClienteList(cliente: Cliente) {
+  retornoClientesList(cliente: Cliente) {
 
   if (this.pedido.cliente == null)
     this.pedido.cliente = [];
@@ -69,13 +76,20 @@ retornoClienteList(cliente: Cliente) {
   this.modalRef.dismiss();
 }
 
+retornoFuncionariosList(funcionario: Funcionario) {
+
+  if (this.pedido.funcionario == null)
+    this.pedido.funcionario = [];
+
+  this.pedido.funcionario.push(funcionario);
+  this.modalRef.dismiss();
+}
+
 
   lancar(modal: any) {
     this.modalRef = this.modalService.open(modal, { size: 'lg' });
   }
 
-  lancarcliente(modal: any) {
-    this.modalRef = this.modalService.open(modal, { size: 'lg' });
-  }
+
 
 }

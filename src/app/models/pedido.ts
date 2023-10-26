@@ -9,7 +9,7 @@ export class Pedido {
   produtoList!: Produto[];
   pizzaList!: Pizza[];
   cliente!: Cliente[];
-  funcionario!: Funcionario;
+  funcionario!: Funcionario[];
   delivery!: boolean;
   formaPagamento!: string;
   criadoEm!: string; // Puedes ajustar el tipo según cómo se almacena en el back-end

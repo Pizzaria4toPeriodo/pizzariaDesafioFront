@@ -69,4 +69,8 @@ export class FuncionariosListComponent {
     this.listAll();
     this.modalService.dismissAll();
   }
+
+  lancamento(funcionario: Funcionario){
+    this.retorno.emit(funcionario);
+  }
 }

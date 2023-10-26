@@ -45,15 +45,6 @@ export class ClientesDetailsComponent {
     
   }
 
-  retornoEnderecoList(endereco: Endereco) {
-
-    if (this.cliente.enderecoList == null)
-      this.cliente.enderecoList = [];
-
-    this.cliente.enderecoList.push(endereco);
-    this.modalRef.dismiss();
-}
-
 
   lancar(modal: any) {
     this.modalRef = this.modalService.open(modal, { size: 'lg' });

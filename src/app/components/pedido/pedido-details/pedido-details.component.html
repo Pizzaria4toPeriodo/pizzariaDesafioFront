@@ -12,8 +12,9 @@
         <input type="text" id="formaPagamento" class="form-control" name="formaPagamento" [(ngModel)]="pedido.formaPagamento">
     </div>
 
-    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button> 
-    <button type="button" class="btn btn-primary" (click)="lancarcliente(modal2)">Lançar cliente</button> 
+    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button>
+    <button type="button" class="btn btn-primary" (click)="lancar(modal2)">Lançar cliente</button> 
+    <button type="button" class="btn btn-primary" (click)="lancar(modal3)">Lançar funcionario</button> 
 
     <table class="table table-striped">
         <thead>
@@ -38,7 +39,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Cliente</th>
-                <th scope="col">Cpf</th>
+                <th scope="col">CPF</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Options</th>
             </tr>
@@ -49,7 +50,23 @@
                 <td> {{ cliente.nomeCliente }} </td>
                 <td> {{ cliente.cpf }} </td>
                 <td> {{ cliente.telefone }} </td>
-                <td> <button type="button" class="btn btn-primary" (click)="excluircliente(cliente,i)">Excluir</button> </td>
+                <td> <button type="button" class="btn btn-primary" (click)="excluirCliente(cliente,i)">Excluir</button> </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome Funcionario</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let funcionario of pedido.funcionario; let i = index">
+                <th scope="row">{{ funcionario.id }}</th>
+                <td> {{ funcionario.nomeFuncionario }} </td>
+                <td> <button type="button" class="btn btn-primary" (click)="excluirFuncionario(funcionario,i)">Excluir</button> </td>
             </tr>
         </tbody>
     </table>
@@ -82,7 +99,22 @@
     </div>
     <div class="modal-body">
        
-        <app-clientes-list [modoLancamento]="true" (retorno)="retornoClienteList($event)" ></app-clientes-list>
+        <app-clientes-list [modoLancamento]="true" (retorno)="retornoClientesList($event)" ></app-clientes-list>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+
+<ng-template #modal3 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Funcionarios</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+       
+        <app-funcionarios-list [modoLancamento]="true" (retorno)="retornoFuncionariosList($event)" ></app-funcionarios-list>
         
     </div>
     <div class="modal-footer">

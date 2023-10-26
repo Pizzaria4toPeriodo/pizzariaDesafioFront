@@ -15,10 +15,9 @@
         <tr *ngFor="let funcionario of lista; let i = index">
           <td>{{ funcionario.id }}</td>
           <td>{{ funcionario.nomeFuncionario }}</td>
-          <td>
-            <button type="button" class="btn btn-primary" (click)="editar(modal1, funcionario, i)">Editar</button>
-            <button type="button" class="btn btn-danger" (click)="excluir(funcionario, i)">Excluir</button>
-          </td>
+          <td *ngIf="!modoLancamento"><button type="button" class="btn btn-primary" (click)="editar(modal1, funcionario, i)">Editar</button></td>
+          <td *ngIf="modoLancamento"><button type="button" class="btn btn-primary" (click)="lancamento(funcionario)">Lançar</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="excluir(funcionario, i)">Excluir</button></td>
         </tr>
       </tbody>
     </table>

@@ -10,29 +10,7 @@
     <div class="mb-3">
         <label for="telefone" class="form-label">telefone:</label>
         <input type="text" id="telefone" class="form-control" name="telefone" [(ngModel)]="cliente.telefone">
-    </div>
-
-    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar endereco</button> 
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Cpf</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let endereco of cliente.enderecoList; let i = index">
-                <th scope="row">{{ endereco.id }}</th>
-                <td> {{ endereco.rua }} </td>
-                <td> {{ endereco.numero }} </td>
-                <td> <button type="button" class="btn btn-primary" (click)="excluir(endereco,i)">Excluir</button> </td>
-            </tr>
-        </tbody>
-    </table>
+    </div>    
 
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>

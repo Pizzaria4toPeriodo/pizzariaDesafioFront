@@ -7,6 +7,12 @@
         <label for="numero" class="form-label">Numero:</label>
         <input type="text" id="numero" class="form-control" name="numero" [(ngModel)]="endereco.numero">
     </div>
+    <div class="mb-3">
+        <label for="clienteSelecionado" class="form-label">Selecione um Cliente:</label>
+        <select id="clienteSelecionado" class="form-select" name="clienteSelecionado" [(ngModel)]="clienteSelecionado">
+            <option *ngFor="let cliente of clientesDisponibles" [value]="cliente.id">{{ cliente.id }}</option>
+        </select>
+    </div>
 
     <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar cliente</button> 
 
@@ -40,7 +46,7 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-        <app-clientes-list [modoLancamento]="true" (retorno)="retornoClienteList($event)" ></app-clientes-list>
+    
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
