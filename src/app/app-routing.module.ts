@@ -11,6 +11,8 @@ import { EnderecosListComponent } from './components/enderecos/enderecos-list/en
 import { ClientesDetailsComponent } from './components/clientes/clientes-details/clientes-details.component';
 import { EnderecosDetailsComponent } from './components/enderecos/enderecos-details/enderecos-details.component';
 import { FuncionariosListComponent } from './components/funcionarios/funcionarios-list/funcionarios-list.component';
+import { FuncionariosDetailsComponent } from './components/funcionarios/funcionarios-details/funcionarios-details.component';
+import { PizzasListComponent } from './components/pizzas/pizzas-list/pizzas-list.component';
 
 const routes: Routes = [
 {path: "", redirectTo: "login", pathMatch: "full"},
@@ -25,6 +27,8 @@ const routes: Routes = [
       {path:"enderecos", component: EnderecosListComponent},
       {path:"enderecos/details/:id", component: EnderecosDetailsComponent},
       {path:"funcionarios", component: FuncionariosListComponent},
+      {path:"funcionarios/details/:id", component: FuncionariosDetailsComponent},
+      {path:"pizzas", component: PizzasListComponent}
     ] }
 
 ];

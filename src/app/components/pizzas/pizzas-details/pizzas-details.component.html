@@ -1,0 +1,33 @@
+<form (ngSubmit)="salvar()">
+    <div class="mb-3">
+        <label for="nomePizza" class="form-label">nome da Pizza:</label>
+        <input type="text" id="nomePizza" class="form-control" name="nomePizza" [(ngModel)]="pizza.nomePizza">
+    </div>
+    <div class="mb-3">
+        <label for="tamanho" class="form-label">tamanho:</label>
+        <input type="text" id="tamanho" class="form-control" name="tamanho" [(ngModel)]="pizza.tamanho">
+    </div>
+    <div class="mb-3">
+        <label for="categoria" class="form-label">categoria:</label>
+        <input type="text" id="categoria" class="form-control" name="categoria" [(ngModel)]="pizza.categoria">
+    </div>  
+    <div class="mb-3">
+        <label for="preco" class="form-label">preco:</label>
+        <input type="text" id="preco" class="form-control" name="preco" [(ngModel)]="pizza.preco">
+    </div>    
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<ng-template #modal1 let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

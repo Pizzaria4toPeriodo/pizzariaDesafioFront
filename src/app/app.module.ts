@@ -20,6 +20,8 @@ import { EnderecosListComponent } from './components/enderecos/enderecos-list/en
 import { EnderecosDetailsComponent } from './components/enderecos/enderecos-details/enderecos-details.component';
 import { FuncionariosListComponent } from './components/funcionarios/funcionarios-list/funcionarios-list.component';
 import { FuncionariosDetailsComponent } from './components/funcionarios/funcionarios-details/funcionarios-details.component';
+import { PizzasListComponent } from './components/pizzas/pizzas-list/pizzas-list.component';
+import { PizzasDetailsComponent } from './components/pizzas/pizzas-details/pizzas-details.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { FuncionariosDetailsComponent } from './components/funcionarios/funciona
     EnderecosListComponent,
     EnderecosDetailsComponent,
     FuncionariosListComponent,
-    FuncionariosDetailsComponent
+    FuncionariosDetailsComponent,
+    PizzasListComponent,
+    PizzasDetailsComponent
   ],
   imports: [
     BrowserModule,
