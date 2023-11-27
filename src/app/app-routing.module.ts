@@ -16,11 +16,12 @@ import { PizzasListComponent } from './components/pizzas/pizzas-list/pizzas-list
 import { PizzasDetailsComponent } from './components/pizzas/pizzas-details/pizzas-details.component';
 import { SaboresListComponent } from './components/sabores/sabores-list/sabores-list.component';
 import { SaboresDetailsComponent } from './components/sabores/sabores-details/sabores-details.component';
+import { roteGuardGuard } from './guards/rote-guard.guard';
 
 const routes: Routes = [
 {path: "", redirectTo: "login", pathMatch: "full"},
 {path: "login", component: LoginComponent},
-{path: "inicio", component: IndexComponent, children:[
+{path: "inicio", component: IndexComponent, canActivate:[roteGuardGuard], children:[
       {path:"pedidos", component: PedidosListComponent},
       {path:"pedidos/details/:id", component: PedidoDetailsComponent},
       {path:"produtos", component: ProdutosListComponent},

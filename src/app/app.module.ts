@@ -24,6 +24,8 @@ import { PizzasListComponent } from './components/pizzas/pizzas-list/pizzas-list
 import { PizzasDetailsComponent } from './components/pizzas/pizzas-details/pizzas-details.component';
 import { SaboresListComponent } from './components/sabores/sabores-list/sabores-list.component';
 import { SaboresDetailsComponent } from './components/sabores/sabores-details/sabores-details.component';
+import { LoginService } from './services/login.service';
+import { httpInterceptorProviders } from './interceptors/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,10 @@ import { SaboresDetailsComponent } from './components/sabores/sabores-details/sa
     NgbModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
