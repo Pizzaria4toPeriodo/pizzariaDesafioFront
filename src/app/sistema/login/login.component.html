@@ -16,13 +16,15 @@
           
   
                 <div class="form-outline form-white mb-4">
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" />
                   <label class="form-label" for="typeEmailX">Email</label>
+                  <input type="email" id="typeEmailX" name="typeEmailX" class="form-control form-control-lg" 
+                  [(ngModel)]="login.username"/>
                 </div>
   
                 <div class="form-outline form-white mb-4">
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg" />
                   <label class="form-label" for="typePasswordX">Password</label>
+                  <input type="password" id="typePasswordX" name="exampleInputPassword1"class="form-control form-control-lg" 
+                  [(ngModel)]="login.password">
                 </div>
   
                 <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Esqueceu a senha?</a></p>
