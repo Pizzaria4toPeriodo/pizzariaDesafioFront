@@ -83,7 +83,7 @@ describe('EnderecosDetailsComponent', () => {
     expect(component.endereco.clienteList).toEqual([cliente1, cliente3]);
   });
 
-  it('should load available clients', fakeAsync(() => {
+  it('cliente list disponivel', fakeAsync(() => {
     const clientesMock: Cliente[] = [
       { id: 1, nomeCliente: 'Cliente1', cpf: '12345678901', telefone: '987654321', enderecoList: [], pedidoList: [] },
       { id: 2, nomeCliente: 'Cliente2', cpf: '23456789012', telefone: '876543210', enderecoList: [], pedidoList: [] }

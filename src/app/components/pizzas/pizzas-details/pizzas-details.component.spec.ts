@@ -101,6 +101,14 @@ describe('PizzasDetailsComponent', () => {
     expect(component.pizza.saborList).toEqual([sabor1, sabor3]);
   });
 
+  it('componente depois do retornoSaborList', () => {
+    const sabor: Sabor = { id: 2, nomeSabor: 'frango', categoria: "salgado", pizzaList: [] };
+
+    component.retornoSaboresList(sabor);
+
+    expect(component.pizza.saborList).toContain(sabor);
+  });
+
   beforeEach(() => {
     let pizza = new Pizza();
     pizza.id = 1;

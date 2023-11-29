@@ -43,7 +43,9 @@ export class PizzasDetailsComponent {
       this.pizza.saborList = [];
 
     this.pizza.saborList.push(sabor);
-    this.modalRef.dismiss();
+    if (this.modalRef) {
+      this.modalRef.dismiss();
+    }
 }
 
 excluir(sabor: Sabor, indice: number) {
