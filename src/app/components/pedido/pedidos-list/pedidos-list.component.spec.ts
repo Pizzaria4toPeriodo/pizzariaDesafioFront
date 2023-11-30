@@ -7,6 +7,7 @@ import { Pedido } from 'src/app/models/pedido';
 import { ClientesService } from 'src/app/services/clientes.service';
 import { of } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
+import { Forma_Pagamento } from 'src/app/models/enum/forma_Pagamento';
 
 describe('PedidosListComponent', () => {
   let component: PedidosListComponent;
@@ -31,7 +32,7 @@ describe('PedidosListComponent', () => {
   });
 
   it('metodo lancamento', () => {
-    const pedidoMock: Pedido = { id: 1, produtoList: [], pizzaList: [], cliente: [], funcionario: [], delivery: true, formaPagamento: "dinheiro", criadoEm: "28/11/2023", total: 10}; 
+    const pedidoMock: Pedido = { id: 1, produtoList: [], pizzaList: [], cliente: [], funcionario: [], delivery: true, formaPagamento: Forma_Pagamento.DINHEIRO, criadoEm: "28/11/2023", total: 10}; 
 
     spyOn(component.retorno, 'emit');
     component.lancamento(pedidoMock);

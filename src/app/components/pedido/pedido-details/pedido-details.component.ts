@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Cliente } from 'src/app/models/cliente';
+import { Forma_Pagamento } from 'src/app/models/enum/forma_Pagamento';
 import { Funcionario } from 'src/app/models/funcionario';
 import { Pedido } from 'src/app/models/pedido';
 import { Pizza } from 'src/app/models/pizza';
 import { Produto } from 'src/app/models/produto';
+import { ClientesService } from 'src/app/services/clientes.service';
+import { FuncionariosService } from 'src/app/services/funcionario.service';
 import { PedidosService } from 'src/app/services/pedidos.service';
 
 @Component({
@@ -14,17 +17,28 @@ import { PedidosService } from 'src/app/services/pedidos.service';
 })
 export class PedidoDetailsComponent {
 
+  clientes: Cliente[] = [];
+  funcionarios: Funcionario[] = [];
+
  @Input() pedido: Pedido = new Pedido();
  @Output() retorno = new EventEmitter<Pedido>();
 
   modalService = inject(NgbModal);
   modalRef!: NgbModalRef;
-
+  clienteService = inject(ClientesService);
+  funcionariosService = inject(FuncionariosService);
   pedidosService = inject(PedidosService);
+
+  formaPagamentoOptions = Object.values(Forma_Pagamento);
 
 
   constructor() {
 
+  }
+
+  ngOnInit() {
+    this.getClientes();
+    this.getFuncionarios();
   }
 
   salvar() {
@@ -40,6 +54,27 @@ export class PedidoDetailsComponent {
 
   }
 
+  getClientes() {
+    this.clienteService.listAll().subscribe(
+      (response) => {
+        this.clientes = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  getFuncionarios() {
+    this.funcionariosService.listAll().subscribe(
+      (response) => {
+        this.funcionarios = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 
   excluir(produto: Produto, indice: number) {
 
@@ -47,17 +82,6 @@ export class PedidoDetailsComponent {
     
   }
 
-  excluirCliente(cliente: Cliente, indice: number) {
-
-    this.pedido.cliente.splice(indice,1);
-    
-  }
-
-  excluirFuncionario(funcionario: Funcionario, indice: number) {
-
-    this.pedido.funcionario.splice(indice,1);
-    
-  }
 
   excluirPizza(pizza: Pizza, indice: number) {
 
@@ -74,28 +98,6 @@ export class PedidoDetailsComponent {
     if (this.modalRef) {
       this.modalRef.dismiss();
     }
-}
-
-  retornoClientesList(cliente: Cliente) {
-
-  if (this.pedido.cliente == null)
-    this.pedido.cliente = [];
-
-  this.pedido.cliente.push(cliente);
-  if (this.modalRef) {
-    this.modalRef.dismiss();
-  }
-}
-
-retornoFuncionariosList(funcionario: Funcionario) {
-
-  if (this.pedido.funcionario == null)
-    this.pedido.funcionario = [];
-
-  this.pedido.funcionario.push(funcionario);
-  if (this.modalRef) {
-    this.modalRef.dismiss();
-  }
 }
 
 retornoPizzasList(pizza: Pizza) {

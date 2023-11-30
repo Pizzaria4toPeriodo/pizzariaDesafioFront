@@ -34,7 +34,7 @@ describe('EnderecosDetailsComponent', () => {
     endereco.id = 1;
     endereco.rua = "av brasil";
     endereco.numero = 555;
-    endereco.clienteList = [];
+    endereco.cliente = [];
     component.endereco = endereco;
   });
 
@@ -68,21 +68,6 @@ describe('EnderecosDetailsComponent', () => {
     expect(component.retorno.emit).toHaveBeenCalled();
   }));
 
-  it('excluir um cliente da lista', () => {
-    const cliente1: Cliente = { id: 1, nomeCliente: 'pedro', cpf: "63891424981", telefone: "54543249876", enderecoList: [], pedidoList: [] };
-    const cliente2: Cliente = { id: 2, nomeCliente: 'juan', cpf: "68138790733", telefone: "55435689234", enderecoList: [], pedidoList: [] };
-    const cliente3: Cliente = { id: 3, nomeCliente: 'nicolas', cpf: "50779241045", telefone: "52456783243", enderecoList: [], pedidoList: [] };
-
-    component.endereco = { id: 1, rua: "av brasil", numero: 555, clienteList: [cliente1, cliente2, cliente3] };
-
-    expect(component.endereco.clienteList.length).toBe(3);
-
-    component.excluir(cliente2, 1);
-
-    expect(component.endereco.clienteList.length).toBe(2);
-    expect(component.endereco.clienteList).toEqual([cliente1, cliente3]);
-  });
-
   it('cliente list disponivel', fakeAsync(() => {
     const clientesMock: Cliente[] = [
       { id: 1, nomeCliente: 'Cliente1', cpf: '12345678901', telefone: '987654321', enderecoList: [], pedidoList: [] },
@@ -106,7 +91,7 @@ describe('EnderecosDetailsComponent', () => {
     endereco.id = 1;
     endereco.rua = "av brasil";
     endereco.numero = 555;
-    endereco.clienteList = [];
+    endereco.cliente = [];
   
     const httpSpy = TestBed.inject(HttpClient)
     spyOn(httpSpy, 'post').and.returnValue(of(endereco));

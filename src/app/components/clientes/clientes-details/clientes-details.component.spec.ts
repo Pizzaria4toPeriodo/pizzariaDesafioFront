@@ -76,9 +76,9 @@ describe('ClientesDetailsComponent', () => {
   }));
 
   it('excluir um endereco da lista', () => {
-    const endereco1: Endereco = { id: 1, rua: 'av brasil', numero: 555, clienteList: [] };
-    const endereco2: Endereco = { id: 2, rua: 'salvador', numero: 323, clienteList: [] };
-    const endereco3: Endereco = { id: 3, rua: 'av das americas', numero: 232, clienteList: [] };
+    const endereco1: Endereco = { id: 1, rua: 'av brasil', numero: 555, cliente: [] };
+    const endereco2: Endereco = { id: 2, rua: 'salvador', numero: 323, cliente: [] };
+    const endereco3: Endereco = { id: 3, rua: 'av das americas', numero: 232, cliente: [] };
 
     component.cliente = { id: 1, nomeCliente: "marcelo", cpf: "54068030936", telefone: "54934539432", enderecoList: [endereco1, endereco2, endereco3], pedidoList: [] };
 

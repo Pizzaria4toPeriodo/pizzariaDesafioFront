@@ -25,7 +25,7 @@ describe('EnderecosListComponent', () => {
   });
 
   it('metodo lancamento', () => {
-    const enderecoMock: Endereco = { id: 1, rua: 'av brasil', numero: 555, clienteList: [] }; 
+    const enderecoMock: Endereco = { id: 1, rua: 'av brasil', numero: 555, cliente: [] }; 
 
     spyOn(component.retorno, 'emit');
     component.lancamento(enderecoMock);

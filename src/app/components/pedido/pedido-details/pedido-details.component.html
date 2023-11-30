@@ -1,20 +1,51 @@
 <form (ngSubmit)="salvar()">
+    <div class="form-froup">
+        <label class="label-form" for="select_cliente" class="label"
+          >Cliente</label
+        >
+        <select
+          name="select_cliente"
+          class="label estilo"
+          [(ngModel)]="pedido.cliente"
+        >
+          <option *ngFor="let cliente of clientes" [ngValue]="cliente">
+            {{ cliente.nomeCliente }}
+          </option>
+        </select>
+      </div>
+      <div class="form-froup">
+        <label class="label-form" for="select_funcionario" class="label"
+          >Funcionario</label
+        >
+        <select
+          name="select_funcionario"
+          class="label estilo"
+          [(ngModel)]="pedido.funcionario"
+        >
+          <option *ngFor="let funcionario of funcionarios" [ngValue]="funcionario">
+            {{ funcionario.nomeFuncionario }}
+          </option>
+        </select>
+      </div>
     <div class="mb-3">
         <label for="total" class="form-label">Total:</label>
         <input type="text" id="total" class="form-control" name="total" [(ngModel)]="pedido.total">
     </div>
     <div class="mb-3">
-        <label for="delivery" class="form-label">Delivery (true/false):</label>
-        <input type="text" id="delivery" class="form-control" name="delivery" [(ngModel)]="pedido.delivery">
+        <label for="delivery" class="form-label">Delivery:</label>
+        <div class="form-check">
+            <input type="checkbox" id="delivery" class="form-check-input" name="delivery" [(ngModel)]="pedido.delivery">
+            <label class="form-check-label" for="delivery">Delivery</label>
+        </div>
     </div>
     <div class="mb-3">
         <label for="formaPagamento" class="form-label">Forma de pagamento:</label>
-        <input type="text" id="formaPagamento" class="form-control" name="formaPagamento" [(ngModel)]="pedido.formaPagamento">
+        <select id="formaPagamento" class="form-select" name="formaPagamento" [(ngModel)]="pedido.formaPagamento">
+          <option *ngFor="let formaPagamento of formaPagamentoOptions" [value]="formaPagamento">{{ formaPagamento }}</option>
+        </select>
     </div>
 
     <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button>
-    <button type="button" class="btn btn-primary" (click)="lancar(modal2)">Lançar cliente</button> 
-    <button type="button" class="btn btn-primary" (click)="lancar(modal3)">Lançar funcionario</button> 
     <button type="button" class="btn btn-primary" (click)="lancar(modal4)">Lançar pizza</button> 
 
     <table class="table table-striped">
@@ -32,42 +63,6 @@
                 <td> {{ produto.nomeProduto }} </td>
                 <td> {{ produto.preco }} </td>
                 <td> <button type="button" class="btn btn-primary" (click)="excluir(produto,i)">Excluir</button> </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cliente of pedido.cliente; let i = index">
-                <th scope="row">{{ cliente.id }}</th>
-                <td> {{ cliente.nomeCliente }} </td>
-                <td> {{ cliente.cpf }} </td>
-                <td> {{ cliente.telefone }} </td>
-                <td> <button type="button" class="btn btn-primary" (click)="excluirCliente(cliente,i)">Excluir</button> </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome Funcionario</th>
-                <th scope="col">Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let funcionario of pedido.funcionario; let i = index">
-                <th scope="row">{{ funcionario.id }}</th>
-                <td> {{ funcionario.nomeFuncionario }} </td>
-                <td> <button type="button" class="btn btn-primary" (click)="excluirFuncionario(funcionario,i)">Excluir</button> </td>
             </tr>
         </tbody>
     </table>
@@ -107,36 +102,6 @@
     <div class="modal-body">
        
         <app-produtos-list [modoLancamento]="true" (retorno)="retornoProdutosList($event)" ></app-produtos-list>
-        
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    </div>
-</ng-template>
-
-<ng-template #modal2 let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title">Clientes</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-       
-        <app-clientes-list [modoLancamento]="true" (retorno)="retornoClientesList($event)" ></app-clientes-list>
-        
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    </div>
-</ng-template>
-
-<ng-template #modal3 let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title">Funcionarios</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-       
-        <app-funcionarios-list [modoLancamento]="true" (retorno)="retornoFuncionariosList($event)" ></app-funcionarios-list>
         
     </div>
     <div class="modal-footer">

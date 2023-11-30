@@ -2,6 +2,7 @@ import { Produto } from './produto';
 import { Cliente } from './cliente';
 import { Funcionario } from './funcionario';
 import { Pizza } from './pizza';
+import { Forma_Pagamento } from './enum/forma_Pagamento';
 
 
 export class Pedido {
@@ -11,8 +12,8 @@ export class Pedido {
   cliente!: Cliente[];
   funcionario!: Funcionario[];
   delivery!: boolean;
-  formaPagamento!: string;
-  criadoEm!: string; // Puedes ajustar el tipo según cómo se almacena en el back-end
+  formaPagamento!: Forma_Pagamento;
+  criadoEm!: string; 
   total!: number;
 
 }

@@ -4,5 +4,5 @@ export class Endereco {
     id!: number;
     rua!: string;
     numero!: number;
-    clienteList!: Cliente[];
+    cliente!: Cliente[];
   }

@@ -12,6 +12,8 @@ import { EnderecosService } from 'src/app/services/endereco.service';
 })
 export class EnderecosDetailsComponent {
 
+  clientes: Cliente[] = [];
+
  @Input() endereco: Endereco = new Endereco();
  @Output() retorno = new EventEmitter<Endereco>();
 
@@ -20,12 +22,16 @@ export class EnderecosDetailsComponent {
   modalService = inject(NgbModal);
   modalRef!: NgbModalRef;
 
-  clientesService = inject(ClientesService)
+  clienteService = inject(ClientesService);
   enderecosService = inject(EnderecosService);
 
 
   constructor() {
     this.cargarClientesDisponibles();
+  }
+
+  ngOnInit() {
+    this.getClientes();
   }
 
   salvar() {
@@ -39,28 +45,10 @@ export class EnderecosDetailsComponent {
         console.error(erro);
       }
     });
-
-
   }
 
-  excluir(cliente: Cliente, indice: number) {
-
-    this.endereco.clienteList.splice(indice,1);
-    
-  }
-
-  adicionarCliente() {
-    if (this.clienteSelecionado) {
-      const cliente = this.clientesDisponibles.find((c) => c.id === this.clienteSelecionado);
-
-      if (cliente) {
-        this.endereco.clienteList.push(cliente);
-      }
-    }
-  }
-  
   cargarClientesDisponibles() {
-    this.clientesService.listAll().subscribe({
+    this.clienteService.listAll().subscribe({
       next: (clientes) => {
         this.clientesDisponibles = clientes;
       },
@@ -71,7 +59,16 @@ export class EnderecosDetailsComponent {
     });
   }
 
-  
+  getClientes() {
+    this.clienteService.listAll().subscribe(
+      (response) => {
+        this.clientes = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 
   lancar(modal: any) {
     this.modalRef = this.modalService.open(modal, { size: 'lg' });
