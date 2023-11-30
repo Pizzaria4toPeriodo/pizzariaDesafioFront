@@ -9,9 +9,9 @@ export const roteGuardGuard: CanActivateFn = (route, state) => {
   let roteador = inject(Router);
 
 
-  if(loginService.getToken() === null){
+  if(loginService.getToken() == null){
 
-    roteador.navigate(['/login']);
+    roteador.navigate(['api/login']);
     return false
   }
   else{

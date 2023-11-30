@@ -1,5 +1,6 @@
 import { Component, Inject, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { Funcionario } from 'src/app/models/funcionario';
 import { Login } from 'src/app/models/login';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -10,7 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent {
 
-  login :Login = new Login;
+  login :Login = new Login();
 
   loginService = inject(LoginService);
 
@@ -32,6 +33,7 @@ export class LoginComponent {
       error: erro => {
         alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
         console.error(erro);
+        console.log('nao foi')
       }
     });
 

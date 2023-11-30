@@ -5,37 +5,37 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="loginService.hasPermission('ADMIN') || loginService.hasPermission('USER') ">
         <a class="nav-link textheader" href="/inicio/produtos">
           <i class="bi bi-cart-plus-fill bi-md"></i>Produto
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loginService.hasPermission('ADMIN') || loginService.hasPermission('USER')">
         <a class="nav-link textheader" href="/inicio/pedidos">
           <i class="bi bi-basket2-fill bi-md"></i>Pedido
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loginService.hasPermission('ADMIN')">
         <a class="nav-link textheader" href="inicio/clientes">
           <i class="bi bi-person-arms-up bi-md"></i> Cliente
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loginService.hasPermission('ADMIN')">
         <a class="nav-link textheader" href="inicio/enderecos">
           <i class="bi bi-geo-fill bi-md"></i>Endereço
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loginService.hasPermission('ADMIN')">
         <a class="nav-link textheader" href="inicio/funcionarios">
           <i class="bi bi-person-fill-gear bi-md"></i>Funcionario
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loginService.hasPermission('ADMIN') || loginService.hasPermission('USER')">
         <a class="nav-link textheader" href="inicio/pizzas">
           <i class="bi bi-bag bi-md"></i>Pizzas
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loginService.hasPermission('ADMIN') || loginService.hasPermission('USER')">
         <a class="nav-link textheader" href="inicio/sabores">
           <i class="bi bi-egg-fill bi-md"></i>sabores
         </a>

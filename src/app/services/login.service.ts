@@ -34,7 +34,7 @@ http = inject(HttpClient);
 
   addToken(token: string){
 
-    localStorage.setItem('token',token)
+    localStorage.setItem('token',token);
 
   }
 
@@ -48,7 +48,7 @@ http = inject(HttpClient);
 
   removeToken(){
 
-localStorage.removeItem('token')
+localStorage.removeItem('token');
 
   }
 
@@ -82,11 +82,6 @@ localStorage.removeItem('token')
 
 
   }
-
-
-
-
-
 
 
 }
