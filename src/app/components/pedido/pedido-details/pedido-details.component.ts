@@ -71,7 +71,9 @@ export class PedidoDetailsComponent {
       this.pedido.produtoList = [];
 
     this.pedido.produtoList.push(produto);
-    this.modalRef.dismiss();
+    if (this.modalRef) {
+      this.modalRef.dismiss();
+    }
 }
 
   retornoClientesList(cliente: Cliente) {
@@ -80,7 +82,9 @@ export class PedidoDetailsComponent {
     this.pedido.cliente = [];
 
   this.pedido.cliente.push(cliente);
-  this.modalRef.dismiss();
+  if (this.modalRef) {
+    this.modalRef.dismiss();
+  }
 }
 
 retornoFuncionariosList(funcionario: Funcionario) {
@@ -89,7 +93,9 @@ retornoFuncionariosList(funcionario: Funcionario) {
     this.pedido.funcionario = [];
 
   this.pedido.funcionario.push(funcionario);
-  this.modalRef.dismiss();
+  if (this.modalRef) {
+    this.modalRef.dismiss();
+  }
 }
 
 retornoPizzasList(pizza: Pizza) {
@@ -98,7 +104,9 @@ retornoPizzasList(pizza: Pizza) {
     this.pedido.pizzaList = [];
 
   this.pedido.pizzaList.push(pizza);
-  this.modalRef.dismiss();
+  if (this.modalRef) {
+    this.modalRef.dismiss();
+  }
 }
 
 
